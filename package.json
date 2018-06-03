@@ -1,6 +1,7 @@
 {
   "name": "vue-carousel",
   "description": "A Vue.js project",
+  "homepage": "http://fmap.ru/games/game/carousel/",
   "version": "1.0.0",
   "author": "Adam <davidatomhernandez@gmail.com>",
   "private": true,

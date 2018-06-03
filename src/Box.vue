@@ -4,8 +4,8 @@
             <img class="box-img" :src="src"/>
         </div>            
         <div class='title'>{{title}}</div>
-        <div class='cost'>{{cost}} руб.
-            <button></button>
+        <div class='cost'>{{cost}} руб.            
+            <img class="button" src="/picture/basket.png" />
         </div>
     </div>
 </template>
@@ -47,20 +47,16 @@
     }
     .cost{
         position: absolute;
-        bottom: 10px;
+        bottom: 20px;
         font-weight: bold;
         font-size: 12px;
         margin: 0 auto;
         width: 100%;
     }
-    .cost button{
-        padding: 10px;
+    .cost .button{        
         margin-left:20px;
-        width: 27px;
-        height: 27px;
-        border: 0;
-        cursor: pointer;
-        background-image: url("/picture/basket.png");        
+        margin-bottom:-15px;
+        cursor: pointer;     
     }
     .title{
         margin-bottom: 60px;

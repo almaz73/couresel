@@ -1,3 +1,7 @@
+
+[ДЕМО](http://fmap.ru/games/game/carousel/index.html)
+======
+
 # vue-carousel
 
 > A Vue.js project
