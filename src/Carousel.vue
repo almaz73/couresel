@@ -15,7 +15,12 @@
           v-for="slide in slides" 
           class='slide'
           :key="slide.id">
-          <Box :title='slide.title' :cost='slide.cost' :pic='slide.pic'   />
+          <Box 
+            :title='slide.title' 
+            :cost='slide.cost' 
+            :pic='slide.pic'   
+            :slides='slides'
+          />
           
         </div>
       
@@ -40,31 +45,31 @@ export default {
     return {
       slides: [
         {
-          title: 'Жидкость Candy King "Batch"',
+          title: '1 Жидкость Candy King "Batch"',
           pic: '1.png',
           cost: 1290,
           id: 1
         },
         {
-          title: 'Жидкость ATLAS "Cuba Toronto"',
+          title: '2 Жидкость ATLAS "Cuba Toronto"',
           pic: '2.png',
           cost: 300,
           id: 2
         },
         {
-          title: 'Жидкость Charlies Chalk "Slam Berry"',
+          title: '3 Жидкость Charlies Chalk "Slam Berry"',
           pic: '3.png',
           cost: 1390,
           id: 3
         },
         {
-          title: 'Жидкость Candy King "Batch 2"',
+          title: '4 Жидкость Candy King "Batch 2"',
           pic: '4.png',
           cost: 249,
           id: 4
         },
         {
-          title: 'Жидкость ATLAS "Cuba Toronto"',
+          title: '5 Жидкость ATLAS "Cuba Toronto"',
           pic: '5.png',
           cost: 350,
           id: 5
@@ -103,6 +108,15 @@ export default {
     }
   },
 
+  created: function () {
+    // нужно расставить слайды так, чтобы первый вышел на первом месте
+    console.log(" .length = ", this.slides.length)
+    for(let i=0; i<this.slides.length-3; i++){
+       const first = this.slides.shift()
+      this.slides = this.slides.concat(first)
+    }
+  },
+
   methods: {
     next () {
       const first = this.slides.shift()
@@ -121,7 +135,7 @@ export default {
   background: #f5f5f5;
   text-align: center;
   margin-top:50px;
-  width: 730px;
+  width: 700px;
   margin: 0 auto;
   padding-bottom: 30px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
@@ -157,26 +171,26 @@ export default {
 
 .carousel-controls{
   display: inline-block;
-  line-height: 150px;
+  line-height: 180px;
   font-family:monospace, 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
- /* background: #ddd;*/
-  width: 22px;
+  width: 32px;
   cursor: pointer;
   vertical-align: bottom;
   height: 240px;
+  /*background: red;*/
+}
+.carousel-controls:active{
+  line-height: 181px;
 }
 
 .carousel-transaction {  
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  
-  width: 640px;
+  overflow: hidden;  
+  width: 620px;
   height: 300px;
-
   background: #c2c0c000;
-  border:1px solid rgb(252, 168, 168);
 }
 
 .slide {
@@ -187,9 +201,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /*border: 2px dashed #000;
-  border-radius: 50%;*/
 
   transition: transform 0.3s ease-in-out;
 }

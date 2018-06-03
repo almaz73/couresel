@@ -1,7 +1,7 @@
 <template>
     <div class='box'> 
         <br>       
-        <img class="box-img" src="./assets/picture/1.png"/>
+        <img class="box-img" :src="src"/>
         <div class='title'>{{title}}</div>
         <div class='cost'>{{cost}} руб.
             <button></button>
@@ -12,29 +12,20 @@
   export default{
     name:'Box',
     props: {
-      title: {
-        type: String
-      },
-      cost:{
-          type: Number
-      },
-      pic:{
-          type: String
-      },
-
+      title: {type: String},
+      cost:{type: Number},
+      pic:{type: String},
+      slides:{type: Array},
     },
     computed:{
-        src2: function (){
-            let Q = "/dist/"+this.pic
-            return "./assets/1.png";
-            /*return Q*/
-            /*return "./assets/1.png";*/
-            /*return "./assets/"+pic;*/
+        src: function (){
+            let text = '';
+            [0,1,2,3,4,5].map(el =>{
+                 if (this.slides[el+2].pic==this.pic) text =  "./picture/"+this.pic;                                    
+            });
+            return text;
         }
-    }
-
-
-    
+    }    
   }
 </script>
 <style>
@@ -47,7 +38,6 @@
         position: relative;
         width: 140px;
         height: 250px;
-        /*border: 1px solid red;*/
         background: white;
     }
     .cost{
@@ -64,7 +54,7 @@
         height: 27px;
         border: 0;
         cursor: pointer;
-        background-image: url("./assets/picture/basket.png");        
+        background-image: url("/picture/basket.png");        
     }
     .title{
         position: absolute;
