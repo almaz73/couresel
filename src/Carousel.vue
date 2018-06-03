@@ -45,31 +45,31 @@ export default {
     return {
       slides: [
         {
-          title: '1 Жидкость Candy King "Batch"',
+          title: 'Жидкость Candy King "Batch"',
           pic: '1.png',
           cost: 1290,
           id: 1
         },
         {
-          title: '2 Жидкость ATLAS "Cuba Toronto"',
+          title: 'Жидкость ATLAS "Cuba Toronto"',
           pic: '2.png',
           cost: 300,
           id: 2
         },
         {
-          title: '3 Жидкость Charlies Chalk "Slam Berry"',
+          title: 'Жидкость Charlies Chalk "Slam Berry"',
           pic: '3.png',
           cost: 1390,
           id: 3
         },
         {
-          title: '4 Жидкость Candy King "Batch 2"',
+          title: 'Жидкость Candy King "Batch 2"',
           pic: '4.png',
           cost: 249,
           id: 4
         },
         {
-          title: '5 Жидкость ATLAS "Cuba Toronto"',
+          title: 'Жидкость ATLAS "Cuba Toronto"',
           pic: '5.png',
           cost: 350,
           id: 5
@@ -110,7 +110,6 @@ export default {
 
   created: function () {
     // нужно расставить слайды так, чтобы первый вышел на первом месте
-    console.log(" .length = ", this.slides.length)
     for(let i=0; i<this.slides.length-3; i++){
        const first = this.slides.shift()
       this.slides = this.slides.concat(first)
@@ -135,7 +134,7 @@ export default {
   background: #f5f5f5;
   text-align: center;
   margin-top:50px;
-  width: 700px;
+  width: 100%;
   margin: 0 auto;
   padding-bottom: 30px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
@@ -148,7 +147,7 @@ export default {
 }
 .text1 {
     position: absolute;
-    left: 230px;
+    left: calc(50% - 110px);
     top: 6px;
     background: #f5f5f5;
     padding: 0 10px;
@@ -165,7 +164,7 @@ export default {
 }
 
 .carousel-view {  
-  width:700px;
+  width:100%;
   margin: 0 auto;
 }
 
@@ -177,8 +176,8 @@ export default {
   cursor: pointer;
   vertical-align: bottom;
   height: 240px;
-  /*background: red;*/
 }
+
 .carousel-controls:active{
   line-height: 181px;
 }
@@ -188,20 +187,18 @@ export default {
   justify-content: center;
   align-items: center;
   overflow: hidden;  
-  width: 620px;
+  width: calc(100% - 80px); 
   height: 300px;
   background: #c2c0c000;
 }
 
 .slide {
-  flex: 0 0 120px;
+  min-width: calc(91%/4);
   height: 120px;
   margin: 10px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   transition: transform 0.3s ease-in-out;
 }
 

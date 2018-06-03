@@ -1,7 +1,8 @@
 <template>
-    <div class='box'> 
-        <br>       
-        <img class="box-img" :src="src"/>
+    <div class='box'>
+        <div class="div-img">
+            <img class="box-img" :src="src"/>
+        </div>            
         <div class='title'>{{title}}</div>
         <div class='cost'>{{cost}} руб.
             <button></button>
@@ -29,16 +30,20 @@
   }
 </script>
 <style>
-    .box-img{
-        width: 80px;
-        min-width: 80px;
+    .div-img{
+        min-height: 140px;
+        padding-top: 20px;
         overflow: hidden;
     }
     .box{
         position: relative;
-        width: 140px;
+        width:100%;
         height: 250px;
-        background: white;
+        background: white;                
+    }
+    .box-img{
+        width: 80px;
+        line-height: 140px;
     }
     .cost{
         position: absolute;
@@ -46,10 +51,11 @@
         font-weight: bold;
         font-size: 12px;
         margin: 0 auto;
-        width: 140px;
+        width: 100%;
     }
     .cost button{
-        padding: 0;
+        padding: 10px;
+        margin-left:20px;
         width: 27px;
         height: 27px;
         border: 0;
@@ -57,8 +63,7 @@
         background-image: url("/picture/basket.png");        
     }
     .title{
-        position: absolute;
-        top: 160px;
+        margin-bottom: 60px;
         font-size: 14px;
         color: #3c8dcb;
     }
